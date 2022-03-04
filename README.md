@@ -1,9 +1,9 @@
 ## Import CSV to Neo4J and applying cypher Query to extract required data
 
 
-### Follwing guide shows 
-1.how to load CSV data to Neo4j 
-2.How to create node
+### Follwing guide shows \n
+1.how to load CSV data to Neo4j \n
+2.How to create node \n
 3.How to extract perticular filtered data from Neo4j
 
 ### Connect to Neo4j server: 
