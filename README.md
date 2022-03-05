@@ -5,7 +5,9 @@ This dataset shows the Monthly Passenger Traffic Statistics by Airline at San Fr
 
 ### Follwing is step-by-step guide 
 1.how to load CSV data to Neo4j 
+
 2.How to create node 
+
 3.How to extract perticular filtered data from Neo4j
 
 ### Connect to Neo4j server: 
