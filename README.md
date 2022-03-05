@@ -4,7 +4,7 @@
 This dataset shows the Monthly Passenger Traffic Statistics by Airline at San Francisco International Airport. Because airport data is seasonal, any comparisons should be made on a period-over-period basis (i.e. January 2010 vs. January 2009), rather than period-to-period (i.e. January 2010 vs. February 2010). It's also worth noting that the correlations between fact and attribute fields aren't necessarily 1:1. For example, United Airlines Passenger Counts will appear in several attribute variables and are additive, giving the user the ability to generate categorized Passenger Counts as needed.
 
 ### Follwing is step-by-step guide 
-1.how to load CSV data to Neo4j 
+1.How to load CSV data to Neo4j 
 
 2.How to create node 
 
@@ -19,7 +19,9 @@ This dataset shows the Monthly Passenger Traffic Statistics by Airline at San Fr
 
 ### Importing data and saving in node:
 WITH "https://bit.ly/3Iyl4b6"AS uri
+
 LOAD CSV WITH HEADERS FROM uri AS line
+
 CREATE (data1:Data1{airline_name:line.Operating_Airline,IATA_code:line.Operating_Airline_IATA_Code,
         geo_region:line.GEO_Region,geo_summary:line.GEO_Summary,
         month:line.Month,year:toInteger(line.Year),
@@ -31,9 +33,13 @@ CREATE (data1:Data1{airline_name:line.Operating_Airline,IATA_code:line.Operating
 
 ### Descriptive Statistics:
 MATCH (n) 
+
 RETURN
+
 DISTINCT labels(n),
+
 count(*) AS SampleSize,
+
 avg(size(keys(n))) as Avg_PropertyCount,
 min(size(keys(n))) as Min_PropertyCount,
 max(size(keys(n))) as Max_PropertyCount,
@@ -45,8 +51,11 @@ max(size(keys(n))) as Max_PropertyCount,
 #### show the GEO region of domestic flights having passanger count > 100000 in december month?
 Ans:
 MATCH (filter_data:Air_Traffic_Data)
+
 WHERE filter_data.geo_summary="Domestic" AND filter_data.month="December" 
+
 AND filter_data.passenger_count>=100000
+
 RETURN filter_data
 
  ![image](https://user-images.githubusercontent.com/81969659/156782944-b426787c-f746-40a3-8e25-262b0fba36fc.png)
